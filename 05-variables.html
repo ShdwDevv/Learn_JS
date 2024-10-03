@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>
+            Cart Quantity
+        </title>
+    </head>
+    <body>
+        <p>Cart Quantity</p>
+        <button onclick="
+            print();
+        ">Show Quantity</button>
+        <button onclick="
+            cartQuantity = cartQuantity+1;
+            print();
+        ">Add to Cart</button>
+        <button onclick="
+            cartQuantity = cartQuantity+2;
+            print();
+        ">+2</button>
+        <button onclick="
+            cartQuantity = cartQuantity+3;
+            print();
+        ">+3</button>
+        <button onclick="
+            cartQuantity += 4;
+            print();
+        ">+4</button>
+        <button onclick="
+            cartQuantity += 5;
+            print();
+        ">+5</button>
+        <button onclick="
+            cartQuantity--;
+            print();
+        ">Remove From Cart</button>
+        <button onclick="
+            cartQuantity-=2;
+            print();
+        ">-2</button>
+        <button onclick="
+            cartQuantity-=3;
+            print();
+        ">-3</button>
+        <button onclick="
+            reset();
+        ">Reset Card</button>
+        <script>
+            let cartQuantity = 0;
+            let print = () =>{
+                console.log(`Cart Quantity : ${cartQuantity}`)
+            }
+            let reset = () =>{
+                cartQuantity = 0;
+                console.log("Cart was reset")
+                print();
+            }
+        </script>
+    </body>
+</html>
