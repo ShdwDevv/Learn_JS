@@ -66,6 +66,7 @@ https://supersimple.dev/projects/variables/
 ![alt text](image-9.png)
 ![alt text](image-10.png)
 ![alt text](image-11.png)
+![alt text](image-12.png)
 * 5a
 ```js
 <script>
@@ -181,3 +182,102 @@ https://supersimple.dev/projects/calculator/
 </body>
 </html>
 ```
+* 5n - 5r
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <p>
+        <button onclick="
+            calculation += `1`;
+            print();
+        ">1</button>
+        <button onclick="
+            calculation += `2`;
+            print();
+        ">2</button>
+        <button onclick="
+            calculation += `3`;
+            print();
+        ">3</button>
+        <button onclick="
+            calculation += ` + `;
+            print();
+        ">+</button>
+    </p>
+    <p>
+        <button onclick="
+            calculation += `4`;
+            print();
+        ">4</button>
+        <button onclick="
+            calculation += `5`;
+            print();
+        ">5</button>
+        <button onclick="
+            calculation += `6`;
+            print();
+        ">6</button>
+        <button onclick="
+            calculation += ` - `;
+            print();
+        ">-</button>
+    </p>
+    <p>
+        <button onclick="
+            calculation += `7`;
+            print();
+        ">7</button>
+        <button onclick="
+            calculation += `8`;
+            print();
+        ">8</button>
+        <button onclick="
+            calculation += `9`;
+            print();
+        ">9</button>
+        <button onclick="
+            calculation += ` * `;
+            print();
+        ">*</button>
+    </p>
+    <p>
+        <button onclick="
+            calculation += `0`;
+            print();
+        ">0</button>
+        <button onclick="
+            calculation += `.`;
+            print();
+        ">.</button>
+        <button onclick="
+            calculation = eval(calculation);
+            print();
+        ">=</button>
+        <button onclick="
+            calculation += ` / `;
+            print();
+        ">/</button>
+    </p>
+    <p>
+        <button onclick="
+            calculation = ``;
+        ">clear</button>
+    </p>
+    <script>
+        let calculation = ``;
+        let print = ()=>{
+            console.log(calculation);
+        }
+    </script>
+</body>
+</html>
+```
+## Lesson - 6 Boolean and If Statements
+![alt text](image-13.png)
+![alt text](image-17.png)
+![alt text](image-16.png)
+![alt text](image-14.png)
