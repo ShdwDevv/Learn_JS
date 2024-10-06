@@ -58,9 +58,109 @@ Math.round((20.95 * 100 + 7.99 * 100 + 18.99 * 100 + 4.99 * 100) * 0.1) / 100; /
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 ![alt text](image-6.png) 
+* 3a
+```js
+'My name is:'
+```
+* 3b
+```js
+'Arshath'
+```
+* 3c
+```js
+'My name is: Arshath'
+```
+* 3d
+```js
+console.log(`Total cost: $8`);
+```
+* 3e
+```js
+console.log(`Total cost: $${5 + 3}`);
+```
+* 3f
+```js
+alert(`Total cost: $${5 + 3}`);
+```
+* 3g
+```js
+let coffee = 5.99;
+let bagel = 2.95;
+let result = (coffee * 100 + bagel * 100) / 100;
+console.log('Total cost: $'+result);
+```
+* 3h
+```js
+let coffee = 5.99;
+let bagel = 2.95;
+console.log(`Total cost: $${(coffee * 100 + bagel * 100) / 100}`);
+```
+* 3i
+```js
+let coffee = 5.99;
+let bagel = 2.95;
+alert(`Total cost: $${(coffee * 100 + bagel * 100) / 100}`);
+```
+* 3j
+```js
+let coffee = 5.99;
+let bagel = 2.95;
+alert(`Total cost: $${(coffee * 100 + bagel * 100) / 100}
+Thank you, come again!`);
+```
+* 3k
+```js
+`Items (${2 + 2}): $${(2 * 2095 + 2 * 799) / 100}`
+```
+* 3l
+```js
+`Shipping & handling: $${(4.99*100+4.99*100)/100}`
+```
+* 3m
+```js
+`Total before tax: $${(20.95*2*100+7.99*2*100+4.99*2*100)/100}`
+```
+* 3n
+```js
+`Extimated tax (10%): $${Math.round((20.95*2*100+7.99*2*100+4.99*2*100)*0.1)/100}`
+```
 ## Lesson 4
 ![alt text](image-7.png)
 ![alt text](image-8.png)
+* 4a
+```html
+<button>click</button>
+```
+* 4b
+```html
+<button>Arshath</button>
+<button>Fried Rice</button>
+```
+* 4c
+```html
+<p>Hello, world!</p>
+```
+* 4d
+```html
+<p>Hello, world!</p>
+<p>Today i dont a portfolio in a short period of time</p>
+```
+* 4e - 4h
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+</head>
+<body>
+    <button style="background-color:yellow">Add to cart</button>
+    <button style="background-color:orange">Buy now</button>
+    <script>console.log('Welcome!')</script>
+</body>
+</html>
+```
 ## Lesson - 5 Variiables
 https://supersimple.dev/projects/variables/
 ![alt text](image-9.png)
