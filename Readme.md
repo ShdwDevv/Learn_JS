@@ -281,3 +281,141 @@ https://supersimple.dev/projects/calculator/
 ![alt text](image-17.png)
 ![alt text](image-16.png)
 ![alt text](image-14.png)
+* 6a , 6b
+```js
+let hour = 7 % 24;
+if (hour >= 6 && hour <= 12) console.log('Good morning');
+else if (hour >= 13 && hour <= 17) console.log('Good afternoon');
+else console.log('Good night');
+```
+* 6c
+```js
+let hour = 17 % 24;
+const name = 'Arshath Ahamed';
+if (hour >= 6 && hour <= 12) console.log(`Good morning ${name}`);
+else if (hour >= 13 && hour <= 17) console.log(`Good afternoon ${name}`);
+else console.log(`Good night ${name}`);
+```
+* 6d
+```js
+let age = 6;
+if(age <= 6 || age >= 65) console.log('Discount');
+else console.log('No Discount')
+```
+* 6e
+```js
+let age = 6;
+let isHoliday = false;
+if (!isHoliday && (age <= 6 || age >= 65)) console.log('Discount');
+else console.log('No Discount');
+```
+* 6f - 6j
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip</title>
+</head>
+<body>
+    <script>
+        let guess = 'head';
+        let result = Math.random() > 0.5 ? "tail" : "head";
+        console.log(guess === result ? "You win!" : "You lose!");
+    </script>
+</body>
+</html>
+```
+* 6k,6l
+```html
+<html>
+    <head>
+        <title>
+            Cart Quantity
+        </title>
+    </head>
+    <body>
+        <p>Cart Quantity</p>
+        <button onclick="
+            print();
+        ">Show Quantity</button>
+        <button onclick="
+            if(cartQuantity+1 <= 10){
+                cartQuantity = cartQuantity+1;
+                print();
+            }
+            else full();
+        ">Add to Cart</button>
+        <button onclick="
+            if(cartQuantity+2 <= 10){
+                cartQuantity = cartQuantity+2;
+                print();
+            }
+            else full();
+        ">+2</button>
+        <button onclick="
+            if(cartQuantity+3 <= 10){
+                cartQuantity = cartQuantity+3;
+                print();
+            }
+            else full();
+        ">+3</button>
+        <button onclick="
+            if(cartQuantity+4 <= 10){
+                cartQuantity = cartQuantity+4;
+                print();
+            }
+            else full();
+        ">+4</button>
+        <button onclick="
+            if(cartQuantity+5 <= 10){
+                cartQuantity = cartQuantity+5;
+                print();
+            }
+            else full();
+        ">+5</button>
+        <button onclick="
+            if(cartQuantity-1 >= 0){
+                cartQuantity = cartQuantity-1;
+                print();
+            }
+            else empty();
+        ">Remove From Cart</button>
+        <button onclick="
+            if(cartQuantity-2 >= 0){
+                cartQuantity = cartQuantity-2;
+                print();
+            }
+            else empty();
+        ">-2</button>
+        <button onclick="
+            if(cartQuantity-3 >= 0){
+                cartQuantity = cartQuantity-3;
+                print();
+            }
+            else empty();
+        ">-3</button>
+        <button onclick="
+            reset();
+        ">Reset Card</button>
+        <script>
+            let cartQuantity = 0;
+            let print = () =>{
+                console.log(`Cart Quantity : ${cartQuantity}`)
+            }
+            let reset = () =>{
+                cartQuantity = 0;
+                console.log("Cart was reset")
+                print();
+            }
+            let empty = ()=>{
+                alert("Not enough items in the cart");
+            }
+            let full = ()=>{
+                alert("The cart is full");
+            }
+        </script>
+    </body>
+</html>
+```

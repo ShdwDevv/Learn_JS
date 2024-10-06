@@ -10,36 +10,60 @@
             print();
         ">Show Quantity</button>
         <button onclick="
-            cartQuantity = cartQuantity+1;
-            print();
+            if(cartQuantity+1 <= 10){
+                cartQuantity = cartQuantity+1;
+                print();
+            }
+            else full();
         ">Add to Cart</button>
         <button onclick="
-            cartQuantity = cartQuantity+2;
-            print();
+            if(cartQuantity+2 <= 10){
+                cartQuantity = cartQuantity+2;
+                print();
+            }
+            else full();
         ">+2</button>
         <button onclick="
-            cartQuantity = cartQuantity+3;
-            print();
+            if(cartQuantity+3 <= 10){
+                cartQuantity = cartQuantity+3;
+                print();
+            }
+            else full();
         ">+3</button>
         <button onclick="
-            cartQuantity += 4;
-            print();
+            if(cartQuantity+4 <= 10){
+                cartQuantity = cartQuantity+4;
+                print();
+            }
+            else full();
         ">+4</button>
         <button onclick="
-            cartQuantity += 5;
-            print();
+            if(cartQuantity+5 <= 10){
+                cartQuantity = cartQuantity+5;
+                print();
+            }
+            else full();
         ">+5</button>
         <button onclick="
-            cartQuantity--;
-            print();
+            if(cartQuantity-1 >= 0){
+                cartQuantity = cartQuantity-1;
+                print();
+            }
+            else empty();
         ">Remove From Cart</button>
         <button onclick="
-            cartQuantity-=2;
-            print();
+            if(cartQuantity-2 >= 0){
+                cartQuantity = cartQuantity-2;
+                print();
+            }
+            else empty();
         ">-2</button>
         <button onclick="
-            cartQuantity-=3;
-            print();
+            if(cartQuantity-3 >= 0){
+                cartQuantity = cartQuantity-3;
+                print();
+            }
+            else empty();
         ">-3</button>
         <button onclick="
             reset();
@@ -53,6 +77,12 @@
                 cartQuantity = 0;
                 console.log("Cart was reset")
                 print();
+            }
+            let empty = ()=>{
+                alert("Not enough items in the cart");
+            }
+            let full = ()=>{
+                alert("The cart is full");
             }
         </script>
     </body>
