@@ -36,9 +36,6 @@ document.body.innerHTML = "";
 ```
 ## Lesson 2
 ![alt text](image-2.png)
-
-
-![alt text](image-3.png)
 * 2a , 2b ,2c ,2d ,2e
 ```js
 1 * 10 + 3 * 8 + 1 * 5 == 39
@@ -47,6 +44,7 @@ document.body.innerHTML = "";
 (18.50 + 2 * 7.50) * 0.1 == 3.35
 (18.50 + 2 * 7.50) * 0.2 == 6.7
 ```
+![alt text](image-3.png)
 * 2f , 2g ,2h, 2i
 ```js
 (20.95 * 100 + 7.99 * 100 + 18.99 * 100) / 100 ; // 47.93
@@ -56,8 +54,6 @@ Math.round((20.95 * 100 + 7.99 * 100 + 18.99 * 100 + 4.99 * 100) * 0.1) / 100; /
 ```
 ## Lesson 3
 ![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-6.png) 
 * 3a
 ```js
 'My name is:'
@@ -82,6 +78,7 @@ console.log(`Total cost: $${5 + 3}`);
 ```js
 alert(`Total cost: $${5 + 3}`);
 ```
+![alt text](image-5.png)
 * 3g
 ```js
 let coffee = 5.99;
@@ -108,6 +105,7 @@ let bagel = 2.95;
 alert(`Total cost: $${(coffee * 100 + bagel * 100) / 100}
 Thank you, come again!`);
 ```
+![alt text](image-6.png) 
 * 3k
 ```js
 `Items (${2 + 2}): $${(2 * 2095 + 2 * 799) / 100}`
@@ -126,7 +124,6 @@ Thank you, come again!`);
 ```
 ## Lesson 4
 ![alt text](image-7.png)
-![alt text](image-8.png)
 * 4a
 ```html
 <button>click</button>
@@ -145,6 +142,7 @@ Thank you, come again!`);
 <p>Hello, world!</p>
 <p>Today i dont a portfolio in a short period of time</p>
 ```
+![alt text](image-8.png)
 * 4e - 4h
 ```html
 <!DOCTYPE html>
@@ -164,9 +162,6 @@ Thank you, come again!`);
 ## Lesson - 5 Variiables
 https://supersimple.dev/projects/variables/
 ![alt text](image-9.png)
-![alt text](image-10.png)
-![alt text](image-11.png)
-![alt text](image-12.png)
 * 5a
 ```js
 <script>
@@ -209,6 +204,7 @@ https://supersimple.dev/projects/variables/
     let tax = cost * 0.1;
 <script>
 ```
+![alt text](image-10.png)
 * 5f
 ```js
 <script>
@@ -262,6 +258,8 @@ https://supersimple.dev/projects/variables/
 ">-3</button>
 ```
 * 5k - I did already
+
+![alt text](image-11.png)
 https://supersimple.dev/projects/calculator/
 * 5l,5m,5n
 ```html
@@ -282,6 +280,7 @@ https://supersimple.dev/projects/calculator/
 </body>
 </html>
 ```
+![alt text](image-12.png)
 * 5n - 5r
 ```html
 <!DOCTYPE html>
@@ -378,9 +377,6 @@ https://supersimple.dev/projects/calculator/
 ```
 ## Lesson - 6 Boolean and If Statements
 ![alt text](image-13.png)
-![alt text](image-17.png)
-![alt text](image-16.png)
-![alt text](image-14.png)
 * 6a , 6b
 ```js
 let hour = 7 % 24;
@@ -396,6 +392,7 @@ if (hour >= 6 && hour <= 12) console.log(`Good morning ${name}`);
 else if (hour >= 13 && hour <= 17) console.log(`Good afternoon ${name}`);
 else console.log(`Good night ${name}`);
 ```
+![alt text](image-17.png)
 * 6d
 ```js
 let age = 6;
@@ -409,6 +406,7 @@ let isHoliday = false;
 if (!isHoliday && (age <= 6 || age >= 65)) console.log('Discount');
 else console.log('No Discount');
 ```
+![alt text](image-16.png)
 * 6f - 6j
 ```html
 <!DOCTYPE html>
@@ -427,6 +425,7 @@ else console.log('No Discount');
 </body>
 </html>
 ```
+![alt text](image-14.png)
 * 6k,6l
 ```html
 <html>
@@ -519,3 +518,195 @@ else console.log('No Discount');
     </body>
 </html>
 ```
+
+## Lesson - 7 Functions
+![alt text](image-18.png)
+* 7a
+```js
+function greet(){
+  console.log("Hello!");
+}
+greet();
+greet();
+greet();
+```
+* 7b
+```js
+function greet(name){
+  console.log(`Hello! ${name}`);
+}
+greet('Arshath');
+greet('Asreen');
+greet('Irshad');
+```
+* 7c
+```js
+function greet(name){
+  if(!name) console.log('Hello there!');
+  else console.log(`Hello! ${name}`);
+}
+greet(); // Hello there!
+```
+![alt text](image-22.png)
+* 7d
+```js
+function convertToFahrenheit(celsius) {
+  console.log((celsius * 9/ 5) + 32);
+}
+convertToFahrenheit(30);
+```
+* 7e
+```js
+function convertToCelcius(fahrenheit){
+  console.log((fahrenheit - 32) * 5 / 9);
+}
+convertToCelcius(86);
+```
+* 7f
+```js
+function convertToFahrenheit(celsius) {
+  console.log(`${(celsius * 9/ 5) + 32}F`);
+}
+function convertToCelcius(fahrenheit){
+  console.log(`${(fahrenheit - 32) * 5 / 9}C`);
+}
+function convertTemperature(degree , unit){
+  if(unit === 'C') convertToFahrenheit(degree);
+  if(unit === 'F') convertToCelcius(degree);
+}
+convertTemperature(25,'C');
+convertTemperature(86,'F');
+```
+![alt text](image-20.png)
+* 7g
+```js
+function convertLength(length,from,to){
+  if(from===to){
+    console.log(`${length} ${to}`);
+  }
+  else{
+    if(from === 'km') console.log(`${length / 1.6} ${to}`);
+    if(from === 'miles') console.log(`${length * 1.6} ${to}`);
+  }
+}
+convertLength(50,'miles','km');
+convertLength(50,'km','km');
+convertLength(32,'km','miles');
+```
+* 7h , 7i
+```js
+function convertLength(length,from,to){
+  if(from===to){
+    return (`${length} ${to}`);
+  }
+  else{
+    if(from === 'km') {
+      if(to === 'miles') return (`${length / 1.6} ${to}`);
+      if(to === 'ft') return (`${length * 3281} ${to}`);
+    }
+    if(from === 'miles') {
+      if(to === 'km') return (`${length * 1.6} ${to}`);
+      if(to === 'ft') return (`${length * 5280} ${to}`);
+    }
+    if(from === 'ft') {
+      if(to === 'km') return (`${length / 3281} ${to}`);
+      if(to === 'miles') return (`${length / 5280} ${to}`);
+    }
+    return `invalid unit ${to}`
+  }
+}
+console.log(convertLength(26400,'ft','miles'));
+console.log(convertLength(26400,'lbs','lbs'));
+```
+![alt text](image-21.png)
+* 7j finished
+* 7k , 7l
+```html
+<html>
+    <head>
+        <title>
+            Cart Quantity
+        </title>
+    </head>
+    <body>
+        <p>Cart Quantity</p>
+        <button onclick="
+            print();
+        ">Show Quantity</button>
+        <button onclick="
+            add(1);
+        ">Add to Cart</button>
+        <button onclick="
+            add(2);
+        ">+2</button>
+        <button onclick="
+            add(3);
+        ">+3</button>
+        <button onclick="
+            add(4);
+        ">+4</button>
+        <button onclick="
+            add(5);
+        ">+5</button>
+        <button onclick="
+            sub(1);
+        ">Remove From Cart</button>
+        <button onclick="
+            sub(2);
+        ">-2</button>
+        <button onclick="
+            sub(3);
+        ">-3</button>
+        <button onclick="
+            reset();
+        ">Reset Card</button>
+        <script>
+            let cartQuantity = 0;
+            let print = () =>{
+                console.log(`Cart Quantity : ${cartQuantity}`)
+            }
+            let sub = (val)=>{
+                if(cartQuantity-val < 0){
+                    empty();
+                    return;
+                }
+                cartQuantity = cartQuantity-val;
+                print();
+            }
+            let add = (val)=>{
+                if(cartQuantity+val > 10){
+                    empty();
+                    return;
+                }
+                cartQuantity = cartQuantity+val;
+                print();
+            }
+            let reset = () =>{
+                cartQuantity = 0;
+                console.log("Cart was reset")
+                print();
+            }
+            let empty = ()=>{
+                alert("Not enough items in the cart");
+            }
+            let full = ()=>{
+                alert("The cart is full");
+            }
+        </script>
+    </body>
+</html>
+```
+## Lesson - 8 Object
+![alt text](image-23.png)
+![alt text](image-25.png)
+![alt text](image-24.png)
+![alt text](image-26.png)
+## Lesson - 9 Document Object Model
+![alt text](image-27.png)
+![alt text](image-29.png)
+![alt text](image-30.png)
+![alt text](image-28.png)
+## Lesson 10 - HTML , CSS , JS Together
+![alt text](image-31.png)
+![alt text](image-32.png)
+![alt text](image-33.png)

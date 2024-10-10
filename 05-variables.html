@@ -10,60 +10,28 @@
             print();
         ">Show Quantity</button>
         <button onclick="
-            if(cartQuantity+1 <= 10){
-                cartQuantity = cartQuantity+1;
-                print();
-            }
-            else full();
+            add(1);
         ">Add to Cart</button>
         <button onclick="
-            if(cartQuantity+2 <= 10){
-                cartQuantity = cartQuantity+2;
-                print();
-            }
-            else full();
+            add(2);
         ">+2</button>
         <button onclick="
-            if(cartQuantity+3 <= 10){
-                cartQuantity = cartQuantity+3;
-                print();
-            }
-            else full();
+            add(3);
         ">+3</button>
         <button onclick="
-            if(cartQuantity+4 <= 10){
-                cartQuantity = cartQuantity+4;
-                print();
-            }
-            else full();
+            add(4);
         ">+4</button>
         <button onclick="
-            if(cartQuantity+5 <= 10){
-                cartQuantity = cartQuantity+5;
-                print();
-            }
-            else full();
+            add(5);
         ">+5</button>
         <button onclick="
-            if(cartQuantity-1 >= 0){
-                cartQuantity = cartQuantity-1;
-                print();
-            }
-            else empty();
+            sub(1);
         ">Remove From Cart</button>
         <button onclick="
-            if(cartQuantity-2 >= 0){
-                cartQuantity = cartQuantity-2;
-                print();
-            }
-            else empty();
+            sub(2);
         ">-2</button>
         <button onclick="
-            if(cartQuantity-3 >= 0){
-                cartQuantity = cartQuantity-3;
-                print();
-            }
-            else empty();
+            sub(3);
         ">-3</button>
         <button onclick="
             reset();
@@ -72,6 +40,22 @@
             let cartQuantity = 0;
             let print = () =>{
                 console.log(`Cart Quantity : ${cartQuantity}`)
+            }
+            let sub = (val)=>{
+                if(cartQuantity-val < 0){
+                    empty();
+                    return;
+                }
+                cartQuantity = cartQuantity-val;
+                print();
+            }
+            let add = (val)=>{
+                if(cartQuantity+val > 10){
+                    empty();
+                    return;
+                }
+                cartQuantity = cartQuantity+val;
+                print();
             }
             let reset = () =>{
                 cartQuantity = 0;
