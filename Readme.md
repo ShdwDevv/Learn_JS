@@ -1608,3 +1608,15 @@ https://supersimple.dev/projects/arrays/
 ![alt text](image-39.png)
 ![alt text](image-40.png)
 ![alt text](image-41.png)
+## Lesson 12 - Advanced Functions
+https://www.supersimple.dev/projects/advanced-functions 
+![alt text](image-43.png)
+![alt text](image-44.png)
+![alt text](image-45.png)
+![alt text](image-46.png)
+
+![alt text](image-47.png)
+![alt text](image-48.png)
+![alt text](image-49.png)
+![alt text](image-50.png)
+![alt text](image-51.png)
