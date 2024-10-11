@@ -994,8 +994,87 @@ console.log(input.repeat(3));
 ## Lesson - 9 Document Object Model
 https://supersimple.dev/projects/dom/
 ![alt text](image-27.png)
+* 9a
+```html
+<button>9a</button>
+<script>
+    const button = document.querySelector('button');
+    console.log(button);
+</script>
+```
+* 9b
+```html
+<button>9a</button>
+<button class="second">9b</button>
+<script>
+    const button = document.querySelector('button');
+    document.querySelector('.second').innerHTML = '9b done';
+</script>
+```
+* 9c
+```html
+<button onclick="display('heads')">heads</button>
+<button onclick="display('tails')">tails</button>
+<p class="js-show"></p>
+<script>
+    const word = document.querySelector('.js-show');
+    function display(toss){
+        word.innerHTML = `You chose: ${toss}`;
+    }
+</script>
+```
 ![alt text](image-29.png)
+* 9d
+```html
+<input placeholder="Name" class="js-input" type="text">
+<button onclick="display()">Submit</button>
+<p class="js-show"></p>
+<script>
+    const inputElement = document.querySelector('.js-input');
+    const word = document.querySelector('.js-show');
+    function display(){
+        word.innerHTML = `Your name is: ${inputElement.value}`;
+    }
+</script>
+```
+* 9e
+```html
+<input placeholder="Name" class="js-input" onkeydown="displayOnKey(event)" type="text">
+<button onclick="display()">Submit</button>
+<p class="js-show"></p>
+<script>
+    const inputElement = document.querySelector('.js-input');
+    const word = document.querySelector('.js-show');
+    function displayOnKey(event){
+        if(event.key === 'Enter') display();
+    }
+    function display(){
+        word.innerHTML = `Your name is: ${inputElement.value}`;
+        inputElement.value = '';
+    }
+</script>
+```
 ![alt text](image-30.png)
+* 9g
+```js
+if(cost < 40) cost += 10; // from 09-dom.html
+// The above line is  converted as
+if(cost < 40) cost = ((cost * 100) + 1000) / 100;
+```
+* 9h
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+    <input placeholder="Type something" class="js-input" onkeyup="
+        const inputElement = document.querySelector('.js-input');
+        document.querySelector('.js-show').innerHTML = inputElement.value;
+    ">
+    <p class="js-show"></p>
+</body>
+</html>
+```
 ![alt text](image-28.png)
 ## Lesson 10 - HTML , CSS , JS Together
 https://supersimple.dev/projects/dom-with-css/
