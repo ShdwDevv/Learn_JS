@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <title>Calculator</title>
+    <link rel="stylesheet" href="./styles/calculator.css">
 </head>
 <body>
-    <p class="js-show"></p>
+    <p class="js-show show"></p>
     <p>
         <button onclick="
             updateCalculation(`1`);
@@ -15,7 +16,7 @@
         <button onclick="
             updateCalculation(`3`);
         ">3</button>
-        <button onclick="
+        <button class="operators" onclick="
             updateCalculation(` + `);
         ">+</button>
     </p>
@@ -29,7 +30,7 @@
         <button onclick="
             updateCalculation(`6`);
         ">6</button>
-        <button onclick="
+        <button class="operators" onclick="
             updateCalculation(` - `);
         ">-</button>
     </p>
@@ -43,7 +44,7 @@
         <button onclick="
             updateCalculation(`9`);
         ">9</button>
-        <button onclick="
+        <button class="operators" onclick="
             updateCalculation(` * `);
         ">*</button>
     </p>
@@ -59,7 +60,7 @@
             showElement.innerHTML = calculation;
             save();
         ">=</button>
-        <button onclick="
+        <button class="operators" onclick="
             updateCalculation(` / `);
         ">/</button>
     </p>
@@ -68,20 +69,8 @@
             calculation = ``;
             showElement.innerHTML = calculation;
             save();
-        ">clear</button>
+        " style="font-size:17px">Clear</button>
     </p>
-    <script>
-        const showElement = document.querySelector('.js-show');
-        let calculation = localStorage.getItem('calculate') || ``;
-        if(calculation) console.log(calculation);
-        function updateCalculation(value){
-            calculation += value;
-            showElement.innerHTML = calculation;
-            save();
-        }
-        function save(){
-            localStorage.setItem('calculate',calculation);
-        }
-    </script>
+    <script src="./scripts/calculator.js"></script>
 </body>
 </html>

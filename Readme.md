@@ -1244,8 +1244,360 @@ if(cost < 40) cost = ((cost * 100) + 1000) / 100;
 ## Lesson 10 - HTML , CSS , JS Together
 https://supersimple.dev/projects/dom-with-css/
 ![alt text](image-31.png)
+* 10a
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        button{
+            padding:5px 40px;
+            border: none;
+            cursor: pointer;
+            background-color: rgb(255,216,20);
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button>Add to Cart</button>
+</body>
+</html>
+```
+* 10b
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        button{
+            padding:10px 15px;
+            border: none;
+            cursor: pointer;
+            background-color: #000;
+            color:#fff;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .schedule-button{
+            background-color: rgb(230,230,230);
+            color:#000;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button>Request now</button>
+    <button class="schedule-button">Schedule for later</button>
+</body>
+</html>
+```
+* 10c
+```html
+<button class="js-button">Test</button>
+<script>
+    buttonElement = document.querySelector('button');
+    console.log(buttonElement.classList.contains('js-button'));
+</script>
+```
+![alt text](image-42.png)
+* 10d
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        button{
+            padding:10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .active{
+            background-color: #000;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggle()">Gaming</button>
+    <script>
+        const buttonElement = document.querySelector('button');
+        function toggle(){
+            if(buttonElement.classList.contains('active')){
+                buttonElement.classList.remove('active');
+            }
+            else{
+                buttonElement.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+```
+* 10e , 10f
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        button{
+            padding:10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .active{
+            background-color: #000;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggle('.js-button')" class="js-button">Gaming</button>
+    <button onclick="toggle('.js-button2')" class="js-button2">Music</button>
+    <button onclick="toggle('.js-button3')" class="js-button3">Tech</button>
+    <script>
+        function toggle(selector){
+            let buttonElement = document.querySelector(selector);
+            if(buttonElement.classList.contains('active')){
+                buttonElement.classList.remove('active');
+            }
+            else{
+                buttonElement.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+```
 ![alt text](image-32.png)
+* 10g
+### My answer (Not a correct answer)
+```html
+<button onclick="toggle('.js-button')" class="js-button">Gaming</button>
+<button onclick="toggle('.js-button2')" class="js-button2">Music</button>
+<button onclick="toggle('.js-button3')" class="js-button3">Tech</button>
+<script>
+    let active = 0;
+    function toggle(selector){
+        let buttonElement = document.querySelector(selector);
+        if(buttonElement.classList.contains('active')){
+            buttonElement.classList.remove('active');
+            active--;
+        }
+        else{
+            if(active <= 0){
+                active++;
+                buttonElement.classList.add('active');
+            }
+        }
+    }
+</script>
+```
+### Actual Answer
+```html
+<button onclick="toggle('.js-button')" class="js-button">Gaming</button>
+<button onclick="toggle('.js-button2')" class="js-button2">Music</button>
+<button onclick="toggle('.js-button3')" class="js-button3">Tech</button>
+<script>
+    function toggle(selector){
+        let buttonElement = document.querySelector(selector);
+        if(buttonElement.classList.contains('active')){
+            buttonElement.classList.remove('active');
+        }
+        else{
+            turnOffPreviousButton();
+            buttonElement.classList.add('active');
+        }
+    }
+    function turnOffPreviousButton() {
+        const previousButton = document.querySelector('.active');
+        if (previousButton) {
+            previousButton.classList.remove('active');
+        }
+    }
+</script>
+```
+* 10h
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .calculate-button{
+            padding:12px 15px;
+            border:none;
+            background-color: rgb(0, 128, 0);
+            color:#fff; 
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .input-box{
+            padding:10px;
+            font-size: 15px;
+        }
+        .error{
+            color:darkred;
+        }
+    </style>
+</head>
+<body>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input class="js-input input-box" type="text" placeholder="Cost of order" onkeydown="handleCostKeydown(event)">
+    <button onclick="calculateTotal()" class="calculate-button">Calculate</button>
+    <p class="js-total"></p>
+    <p class="js-error error"></p>
+    <script>
+        const totalElement = document.querySelector('.js-total');
+        const errorElement = document.querySelector('.js-error');
+        let handleCostKeydown = (event) => {
+            if(event.code === 'Enter') calculateTotal();
+        };
+        
+        let calculateTotal = () =>{
+            errorElement.innerHTML = '';
+            const inputElement = document.querySelector(".js-input");
+            let cost = Number(inputElement.value);
+            if(cost < 0){
+                totalElement.innerHTML = '';
+                errorElement.innerHTML = 'Error: cost cannot be less than $0';
+            }
+            else{
+                if(cost < 40) cost += 10;
+                totalElement.innerHTML = `$${cost}`;
+            }
+        };
+    </script>
+</body>
+</html>
+```
 ![alt text](image-33.png)
+https://www.supersimple.dev/projects/calculator-final
+* 10i , 10j
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button{
+            width: 60px;
+            height: 60px;
+            background-color: rgb(51, 51, 51);
+            font-size: 26px;
+            cursor: pointer;
+            border : none;
+            border-radius: 50%;
+            color: #fff;
+            margin-right: 5.5px;
+        }
+        .operators{
+            background-color: rgb(254, 160, 10);
+        }
+        .show{
+            font-size: 45px;
+            color:#fff;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <p class="js-show show"></p>
+    <p>
+        <button onclick="
+            updateCalculation(`1`);
+        ">1</button>
+        <button onclick="
+            updateCalculation(`2`)
+        ">2</button>
+        <button onclick="
+            updateCalculation(`3`);
+        ">3</button>
+        <button class="operators" onclick="
+            updateCalculation(` + `);
+        ">+</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`4`);
+        ">4</button>
+        <button onclick="
+            updateCalculation(`5`);
+        ">5</button>
+        <button onclick="
+            updateCalculation(`6`);
+        ">6</button>
+        <button class="operators" onclick="
+            updateCalculation(` - `);
+        ">-</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`7`);
+        ">7</button>
+        <button onclick="
+            updateCalculation(`8`);
+        ">8</button>
+        <button onclick="
+            updateCalculation(`9`);
+        ">9</button>
+        <button class="operators" onclick="
+            updateCalculation(` * `);
+        ">*</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`0`);
+        ">0</button>
+        <button onclick="
+            updateCalculation(`.`);
+        ">.</button>
+        <button onclick="
+            if(calculation) calculation = eval(calculation);
+            showElement.innerHTML = calculation;
+            save();
+        ">=</button>
+        <button class="operators" onclick="
+            updateCalculation(` / `);
+        ">/</button>
+    </p>
+    <p>
+        <button onclick="
+            calculation = ``;
+            showElement.innerHTML = calculation;
+            save();
+        " style="font-size:17px">Clear</button>
+    </p>
+    <script>
+        const showElement = document.querySelector('.js-show');
+        let calculation = localStorage.getItem('calculate') || ``;
+        if(calculation) showElement.innerHTML = calculation;
+        function updateCalculation(value){
+            calculation += value;
+            showElement.innerHTML = calculation;
+            save();
+        }
+        function save(){
+            localStorage.setItem('calculate',calculation);
+        }
+    </script>
+</body>
+</html>
+```
 ## Lesson 11 Arrays and Loops
 https://supersimple.dev/projects/arrays/
 ![alt text](image-34.png)

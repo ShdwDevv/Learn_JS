@@ -1,72 +1,56 @@
-<html>
-    <head>
-        <title>
-            Cart Quantity
-        </title>
-    </head>
-    <body>
-        <p>Cart Quantity</p>
-        <button onclick="
-            print();
-        ">Show Quantity</button>
-        <button onclick="
-            add(1);
-        ">Add to Cart</button>
-        <button onclick="
-            add(2);
-        ">+2</button>
-        <button onclick="
-            add(3);
-        ">+3</button>
-        <button onclick="
-            add(4);
-        ">+4</button>
-        <button onclick="
-            add(5);
-        ">+5</button>
-        <button onclick="
-            add(-1);
-        ">Remove From Cart</button>
-        <button onclick="
-            add(-2);
-        ">-2</button>
-        <button onclick="
-            add(-3);
-        ">-3</button>
-        <button onclick="
-            reset();
-        ">Reset Card</button>
-        <p class="js-show"></p>
-        <script>
-            const showElement = document.querySelector('.js-show');
-            let cartQuantity = 0;
-            print();
-            function print(){
-                showElement.innerHTML = `Cart Quantity : ${cartQuantity}`;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .calculate-button{
+            padding:12px 15px;
+            border:none;
+            background-color: rgb(0, 128, 0);
+            color:#fff; 
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .input-box{
+            padding:10px;
+            font-size: 15px;
+        }
+        .error{
+            color:darkred;
+        }
+    </style>
+</head>
+<body>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input class="js-input input-box" type="text" placeholder="Cost of order" onkeydown="handleCostKeydown(event)">
+    <button onclick="calculateTotal()" class="calculate-button">Calculate</button>
+    <p class="js-total"></p>
+    <p class="js-error error"></p>
+    <script>
+        const totalElement = document.querySelector('.js-total');
+        const errorElement = document.querySelector('.js-error');
+        let handleCostKeydown = (event) => {
+            if(event.code === 'Enter') calculateTotal();
+        };
+        
+        let calculateTotal = () =>{
+            errorElement.innerHTML = '';
+            const inputElement = document.querySelector(".js-input");
+            let cost = Number(inputElement.value);
+            if(cost < 0){
+                totalElement.innerHTML = '';
+                errorElement.innerHTML = 'Error: cost cannot be less than $0';
             }
-            let add = (val)=>{
-                if(cartQuantity+val > 10){
-                    full();
-                    return;
-                }
-                if(cartQuantity+val < 0){
-                    empty();
-                    return;
-                }
-                cartQuantity = cartQuantity+val;
-                print();
+            else{
+                if(cost < 40) cost += 10;
+                totalElement.innerHTML = `$${cost}`;
             }
-            let reset = () =>{
-                cartQuantity = 0;
-                console.log("Cart was reset")
-                print();
-            }
-            let empty = ()=>{
-                alert("Not enough items in the cart");
-            }
-            let full = ()=>{
-                alert("The cart is full");
-            }
-        </script>
-    </body>
+        };
+    </script>
+</body>
 </html>
