@@ -4,6 +4,7 @@
     <title>Calculator</title>
 </head>
 <body>
+    <p class="js-show"></p>
     <p>
         <button onclick="
             updateCalculation(`1`);
@@ -55,7 +56,7 @@
         ">.</button>
         <button onclick="
             if(calculation) calculation = eval(calculation);
-            console.log(calculation);
+            showElement.innerHTML = calculation;
             save();
         ">=</button>
         <button onclick="
@@ -65,15 +66,17 @@
     <p>
         <button onclick="
             calculation = ``;
+            showElement.innerHTML = calculation;
             save();
         ">clear</button>
     </p>
     <script>
+        const showElement = document.querySelector('.js-show');
         let calculation = localStorage.getItem('calculate') || ``;
         if(calculation) console.log(calculation);
         function updateCalculation(value){
             calculation += value;
-            console.log(calculation);
+            showElement.innerHTML = calculation;
             save();
         }
         function save(){

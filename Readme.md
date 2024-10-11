@@ -1076,6 +1076,171 @@ if(cost < 40) cost = ((cost * 100) + 1000) / 100;
 </html>
 ```
 ![alt text](image-28.png)
+* 9i
+```html
+<html>
+    <head>
+        <title>
+            Cart Quantity
+        </title>
+    </head>
+    <body>
+        <p>Cart Quantity</p>
+        <button onclick="
+            print();
+        ">Show Quantity</button>
+        <button onclick="
+            add(1);
+        ">Add to Cart</button>
+        <button onclick="
+            add(2);
+        ">+2</button>
+        <button onclick="
+            add(3);
+        ">+3</button>
+        <button onclick="
+            add(4);
+        ">+4</button>
+        <button onclick="
+            add(5);
+        ">+5</button>
+        <button onclick="
+            add(-1);
+        ">Remove From Cart</button>
+        <button onclick="
+            add(-2);
+        ">-2</button>
+        <button onclick="
+            add(-3);
+        ">-3</button>
+        <button onclick="
+            reset();
+        ">Reset Card</button>
+        <p class="js-show"></p>
+        <script>
+            const showElement = document.querySelector('.js-show');
+            let cartQuantity = 0;
+            print();
+            function print(){
+                showElement.innerHTML = `Cart Quantity : ${cartQuantity}`;
+            }
+            let add = (val)=>{
+                if(cartQuantity+val > 10){
+                    full();
+                    return;
+                }
+                if(cartQuantity+val < 0){
+                    empty();
+                    return;
+                }
+                cartQuantity = cartQuantity+val;
+                print();
+            }
+            let reset = () =>{
+                cartQuantity = 0;
+                console.log("Cart was reset")
+                print();
+            }
+            let empty = ()=>{
+                alert("Not enough items in the cart");
+            }
+            let full = ()=>{
+                alert("The cart is full");
+            }
+        </script>
+    </body>
+</html>
+```
+* 9j
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <p class="js-show"></p>
+    <p>
+        <button onclick="
+            updateCalculation(`1`);
+        ">1</button>
+        <button onclick="
+            updateCalculation(`2`)
+        ">2</button>
+        <button onclick="
+            updateCalculation(`3`);
+        ">3</button>
+        <button onclick="
+            updateCalculation(` + `);
+        ">+</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`4`);
+        ">4</button>
+        <button onclick="
+            updateCalculation(`5`);
+        ">5</button>
+        <button onclick="
+            updateCalculation(`6`);
+        ">6</button>
+        <button onclick="
+            updateCalculation(` - `);
+        ">-</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`7`);
+        ">7</button>
+        <button onclick="
+            updateCalculation(`8`);
+        ">8</button>
+        <button onclick="
+            updateCalculation(`9`);
+        ">9</button>
+        <button onclick="
+            updateCalculation(` * `);
+        ">*</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`0`);
+        ">0</button>
+        <button onclick="
+            updateCalculation(`.`);
+        ">.</button>
+        <button onclick="
+            if(calculation) calculation = eval(calculation);
+            showElement.innerHTML = calculation;
+            save();
+        ">=</button>
+        <button onclick="
+            updateCalculation(` / `);
+        ">/</button>
+    </p>
+    <p>
+        <button onclick="
+            calculation = ``;
+            showElement.innerHTML = calculation;
+            save();
+        ">clear</button>
+    </p>
+    <script>
+        const showElement = document.querySelector('.js-show');
+        let calculation = localStorage.getItem('calculate') || ``;
+        if(calculation) console.log(calculation);
+        function updateCalculation(value){
+            calculation += value;
+            showElement.innerHTML = calculation;
+            save();
+        }
+        function save(){
+            localStorage.setItem('calculate',calculation);
+        }
+    </script>
+</body>
+</html>
+```
 ## Lesson 10 - HTML , CSS , JS Together
 https://supersimple.dev/projects/dom-with-css/
 ![alt text](image-31.png)
