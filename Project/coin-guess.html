@@ -6,10 +6,25 @@
     <title>Coin Flip</title>
 </head>
 <body>
+    <button onclick="play('head')">heads</button>
+    <button onclick="play('tail')">tails</button>
     <script>
-        let guess = 'head';
-        let result = Math.random() > 0.5 ? "tail" : "head";
-        console.log(guess === result ? "You win!" : "You lose!");
+        const score = JSON.parse(localStorage.getItem('score'))  || {
+            wins:0,
+            losses : 0
+        };
+        console.log(typeof score);
+        function play(guess){
+            let result = Math.random() > 0.5 ? "tail" : "head";
+            console.log(guess === result ? "You win!" : "You lose!");
+            if(guess === result) {
+                score.wins++;
+                
+            }
+            else score.losses++;
+            console.log(score);
+            localStorage.setItem('score',JSON.stringify(score));
+        }
     </script>
 </body>
 </html>

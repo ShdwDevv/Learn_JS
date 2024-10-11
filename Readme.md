@@ -619,7 +619,86 @@ console.log(convertLength(26400,'ft','miles'));
 console.log(convertLength(26400,'lbs','lbs'));
 ```
 ![alt text](image-21.png)
-* 7j finished
+* 7j 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <p>
+        <button onclick="
+            updateCalculation(`1`);
+        ">1</button>
+        <button onclick="
+            updateCalculation(`2`)
+        ">2</button>
+        <button onclick="
+            updateCalculation(`3`);
+        ">3</button>
+        <button onclick="
+            updateCalculation(` + `);
+        ">+</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`4`);
+        ">4</button>
+        <button onclick="
+            updateCalculation(`5`);
+        ">5</button>
+        <button onclick="
+            updateCalculation(`6`);
+        ">6</button>
+        <button onclick="
+            updateCalculation(` - `);
+        ">-</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`7`);
+        ">7</button>
+        <button onclick="
+            updateCalculation(`8`);
+        ">8</button>
+        <button onclick="
+            updateCalculation(`9`);
+        ">9</button>
+        <button onclick="
+            updateCalculation(` * `);
+        ">*</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`0`);
+        ">0</button>
+        <button onclick="
+            updateCalculation(`.`);
+        ">.</button>
+        <button onclick="
+            if(calculation) calculation = eval(calculation);
+            console.log(calculation);
+        ">=</button>
+        <button onclick="
+            updateCalculation(` / `);
+        ">/</button>
+    </p>
+    <p>
+        <button onclick="
+            calculation = ``;
+        ">clear</button>
+    </p>
+    <script>
+        let calculation = ``;
+        function updateCalculation(value){
+            calculation += value;
+            console.log(calculation);
+        }
+    </script>
+</body>
+</html>
+```
 * 7k , 7l
 ```html
 <html>
@@ -699,8 +778,219 @@ console.log(convertLength(26400,'lbs','lbs'));
 ## Lesson - 8 Object
 ![alt text](image-23.png)
 ![alt text](image-25.png)
+* 8a
+```js
+const product = {
+  name : "basketball",
+  price : 2095
+}
+console.log(product)
+```
+* 8b
+```js
+const product = {
+  name : "basketball",
+  price : 2095
+}
+console.log(product)
+product.price += 500;
+console.log(product)
+```
+* 8c
+```js
+const product = {
+  name: 'basketball',
+  price: 2095,
+};
+console.log(product);
+product.price += 500;
+console.log(product);
+product['delivery-time'] = '3 days';
+console.log(product);
+```
+* 8d
+```js
+const product = {
+  name: 'basketball',
+  price: 2095,
+};
+const product2 = {
+  name: 'cricket-bat',
+  price: 1095,
+};
+function comparePrice(product1, product2) {
+  return product1.price < product2.price ? product1 : product2;
+}
+console.log(comparePrice(product,product2));
+```
 ![alt text](image-24.png)
+* 8e
+```js
+const product = {
+  name: 'basketball',
+  price: 2095,
+};
+const product2 = {
+  name: 'basketball',
+  price: 2095,
+};
+function isSameProduct(product1, product2) {
+  return product1.name === product2.name && product1.price === product2.price;
+}
+console.log(isSameProduct(product, product2));
+```
+* 8f
+```js
+let input = 'Good Morning';
+console.log(input.toLowerCase());
+```
+* 8g
+```js
+let input = 'test';
+console.log(input.repeat(3));
+```
+* 8h
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <p>
+        <button onclick="
+            updateCalculation(`1`);
+        ">1</button>
+        <button onclick="
+            updateCalculation(`2`)
+        ">2</button>
+        <button onclick="
+            updateCalculation(`3`);
+        ">3</button>
+        <button onclick="
+            updateCalculation(` + `);
+        ">+</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`4`);
+        ">4</button>
+        <button onclick="
+            updateCalculation(`5`);
+        ">5</button>
+        <button onclick="
+            updateCalculation(`6`);
+        ">6</button>
+        <button onclick="
+            updateCalculation(` - `);
+        ">-</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`7`);
+        ">7</button>
+        <button onclick="
+            updateCalculation(`8`);
+        ">8</button>
+        <button onclick="
+            updateCalculation(`9`);
+        ">9</button>
+        <button onclick="
+            updateCalculation(` * `);
+        ">*</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(`0`);
+        ">0</button>
+        <button onclick="
+            updateCalculation(`.`);
+        ">.</button>
+        <button onclick="
+            if(calculation) calculation = eval(calculation);
+            console.log(calculation);
+            save();
+        ">=</button>
+        <button onclick="
+            updateCalculation(` / `);
+        ">/</button>
+    </p>
+    <p>
+        <button onclick="
+            calculation = ``;
+            save();
+        ">clear</button>
+    </p>
+    <script>
+        let calculation = localStorage.getItem('calculate') || ``;
+        if(calculation) console.log(calculation);
+        function updateCalculation(value){
+            calculation += value;
+            console.log(calculation);
+            save();
+        }
+        function save(){
+            localStorage.setItem('calculate',calculation);
+        }
+    </script>
+</body>
+</html>
+```
 ![alt text](image-26.png)
+* 8i
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip</title>
+</head>
+<body>
+    <button onclick="play('head')">heads</button>
+    <button onclick="play('tail')">tails</button>
+    <script>
+        function play(guess){
+            let result = Math.random() > 0.5 ? "tail" : "head";
+            console.log(guess === result ? "You win!" : "You lose!");
+        }
+    </script>
+</body>
+</html>
+```
+* 8k
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip</title>
+</head>
+<body>
+    <button onclick="play('head')">heads</button>
+    <button onclick="play('tail')">tails</button>
+    <script>
+        const score = JSON.parse(localStorage.getItem('score'))  || {
+            wins:0,
+            losses : 0
+        };
+        console.log(typeof score);
+        function play(guess){
+            let result = Math.random() > 0.5 ? "tail" : "head";
+            console.log(guess === result ? "You win!" : "You lose!");
+            if(guess === result) {
+                score.wins++;
+                
+            }
+            else score.losses++;
+            console.log(score);
+            localStorage.setItem('score',JSON.stringify(score));
+        }
+    </script>
+</body>
+</html>
+```
 ## Lesson - 9 Document Object Model
 https://supersimple.dev/projects/dom/
 ![alt text](image-27.png)
@@ -718,3 +1008,7 @@ https://supersimple.dev/projects/arrays/
 ![alt text](image-35.png)
 ![alt text](image-36.png)
 ![alt text](image-37.png)
+![alt text](image-38.png)
+![alt text](image-39.png)
+![alt text](image-40.png)
+![alt text](image-41.png)

@@ -56,6 +56,7 @@
         <button onclick="
             if(calculation) calculation = eval(calculation);
             console.log(calculation);
+            save();
         ">=</button>
         <button onclick="
             updateCalculation(` / `);
@@ -64,13 +65,19 @@
     <p>
         <button onclick="
             calculation = ``;
+            save();
         ">clear</button>
     </p>
     <script>
-        let calculation = ``;
+        let calculation = localStorage.getItem('calculate') || ``;
+        if(calculation) console.log(calculation);
         function updateCalculation(value){
             calculation += value;
             console.log(calculation);
+            save();
+        }
+        function save(){
+            localStorage.setItem('calculate',calculation);
         }
     </script>
 </body>
