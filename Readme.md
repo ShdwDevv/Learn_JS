@@ -702,11 +702,19 @@ console.log(convertLength(26400,'lbs','lbs'));
 ![alt text](image-24.png)
 ![alt text](image-26.png)
 ## Lesson - 9 Document Object Model
+https://supersimple.dev/projects/dom/
 ![alt text](image-27.png)
 ![alt text](image-29.png)
 ![alt text](image-30.png)
 ![alt text](image-28.png)
 ## Lesson 10 - HTML , CSS , JS Together
+https://supersimple.dev/projects/dom-with-css/
 ![alt text](image-31.png)
 ![alt text](image-32.png)
 ![alt text](image-33.png)
+## Lesson 11 Arrays and Loops
+https://supersimple.dev/projects/arrays/
+![alt text](image-34.png)
+![alt text](image-35.png)
+![alt text](image-36.png)
+![alt text](image-37.png)
