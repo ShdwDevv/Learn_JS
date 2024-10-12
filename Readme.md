@@ -1620,3 +1620,6 @@ https://www.supersimple.dev/projects/advanced-functions
 ![alt text](image-49.png)
 ![alt text](image-50.png)
 ![alt text](image-51.png)
+
+## Lesson 13 - Amazon Project
+https://www.supersimple.dev/projects/amazon/
