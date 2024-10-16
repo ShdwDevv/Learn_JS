@@ -1623,3 +1623,164 @@ https://www.supersimple.dev/projects/advanced-functions
 
 ## Lesson 13 - Amazon Project
 https://www.supersimple.dev/projects/amazon/
+![alt text](image-52.png)
+![alt text](image-53.png)
+![alt text](image-54.png)
+![alt text](image-55.png)
+![alt text](image-56.png)
+## Lesson 14 Modules
+![alt text](image-57.png)
+![alt text](image-58.png)
+![alt text](image-59.png)
+![alt text](image-60.png)
+![alt text](image-61.png)
+![alt text](image-62.png)
+![alt text](image-63.png)
+## Lesson 15 External Libraries
+![alt text](image-64.png)
+![alt text](image-65.png)
+![alt text](image-66.png)
+![alt text](image-67.png)
+![alt text](image-68.png)
+![alt text](image-69.png)
+![alt text](image-70.png)
+## Lesson 16 - Testing
+There are 2 types of test cases
+1. Basic Test Cases
+1. Edge Test Cases
+* Manual Testing - Manually open the webiste and see the output (disadv : we cant see for all the test cases and hard to retest)
+* Automated TEsting - Using Code to test the code
+* Group of related Test == Test suite   
+### Testing Framework
+* It is a external library that helps us write test easier
+* Flaky test - Test that sometimes passes and sometimes fails (localStorage part issue)
+# Incomplete TEsting
+## Lesson 17 Object-Oriented Programming
+```js
+const obj = {
+  method : () => {
+    console.log(this);
+  },
+  method2(){
+    console.log(this);
+    
+  }
+}
+obj.method(); // undefined
+obj.method2(); // {method: ƒ, method2: ƒ}
+```
+* Why arrow function have like  this
+![alt text](image-71.png)
+* in common function the value  of this is undefine ,  so to dont want to change the value of this , we use `Arrow Function`
+![alt text](image-72.png)
+![alt text](image-73.png)
+### Exercises
+![alt text](image-74.png)
+![alt text](image-75.png)
+![alt text](image-76.png)
+![alt text](image-77.png)
+![alt text](image-78.png)
+![alt text](image-79.png)
+## Lesson 18 - Backend
+https://supersimplebackend.dev/documentation
+```js
+const xhr = new XMLHttpRequest();
+xhr.addEventListener('load',()=>{
+    console.log(xhr.response);
+});
+xhr.open('get','https://supersimplebackend.dev/products/first');
+xhr.send();
+```
+* In console it support only text type response , so for image it will give the  raw data
+* For browser it will give inn `HTML` format
+![alt text](image-81.png)
+* Using Call Back
+```js
+loadProducts(()=>{
+    renderOrderSummary();
+    renderPaymentSummary();
+});
+```
+* using Promises
+```js
+new Promise((resolve)=>{
+    loadProducts(()=>{
+        resolve('store in val');
+    })
+}).then((val) => {
+    console.log(val);
+    renderOrderSummary();
+    renderPaymentSummary();
+})
+```
+* Added cart (callback)
+```js
+loadProducts(()=>{
+    loadCart(()=>{
+        renderOrderSummary();
+        renderPaymentSummary();
+    })
+})
+```
+* Added cart ( Promises)
+```js
+new Promise((resolve) => {
+    loadProducts(()=>{
+        resolve();
+    });
+}).then(()=>{
+    return new Promise((resolve) => {
+        loadCart(() => {
+            resolve();
+        });
+    });
+}).then(() =>{
+    renderOrderSummary();
+    renderPaymentSummary();
+})
+```
+* Promise.all (To handle  multiple promises)
+```js
+Promise.all([
+    // new Promise((resolve) => {
+    //     loadProducts(()=>{
+    //         resolve('one');
+    //     });
+    // })
+    loadProductsFetch(),
+    new Promise((resolve) => {
+        loadCart(() => {
+            resolve();
+        });
+    })
+]).then((val) => {
+    console.log(val);
+    renderOrderSummary();
+    renderPaymentSummary();
+});
+```
+### fetch()
+```js
+function loadProductsFetch(){
+  fetch('https://supersimplebackend.dev/products').then((response) => {
+    return response.json();
+  }).then((responseData) => {
+    console.log(responseData);
+  });
+}
+loadProductsFetch();
+```
+### Async ans Await (Shor form of promises)
+* async - make a function return a promise
+![alt text](image-80.png)
+![alt text](image-82.png)
+* More details
+![alt text](image-83.png)
+### Exercises
+![alt text](image-84.png)
+![alt text](image-85.png)
+![alt text](image-86.png)
+![alt text](image-87.png)
+![alt text](image-88.png)
+![alt text](image-89.png)
+![alt text](image-90.png)
